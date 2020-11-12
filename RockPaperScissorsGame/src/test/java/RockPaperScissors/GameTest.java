@@ -1,18 +1,26 @@
 package RockPaperScissors;
 import static org.mockito.Mockito.*;
+
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 public class GameTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
+	
+	public static Test suite()
+    {
+        return new TestSuite( GameTest.class );
+    }
 
 	public void testGame() {
 		Game game=new Game(1);
-		assertEquals(game.getDraws(),0);
-		assertEquals(game.getWinsPlayer1(),0);
-		assertEquals(game.getWinsPlayer2(),0);
+		assertEquals(0,game.getDraws());
+		assertEquals(0,game.getWinsPlayer1());
+		assertEquals(0,game.getWinsPlayer2());
 	}
 	
 	
@@ -40,7 +48,7 @@ public class GameTest extends TestCase {
 		game.addPlayer(p1);
 	    game.addPlayer(p2);
 	    game.startGame();
-	    assertEquals(game.getWinsPlayer2(),1);
+	    assertEquals(1,game.getWinsPlayer2());
 	    
 		
 	}
@@ -50,7 +58,7 @@ public class GameTest extends TestCase {
 		Player p1=new RockPlayer();
 		game.addPlayer(p1);
 	    game.startGame();
-	    assertEquals(game.getWinsPlayer2(),1);
+	    assertEquals(1,game.getWinsPlayer2());
 	    try {
 	    	game.addPlayer(p1);
 		    game.startGame();
@@ -68,7 +76,7 @@ public class GameTest extends TestCase {
 		game.addPlayer(p1);
 	    game.addPlayer(p2);
 	    game.startGame();
-	    assertEquals(game.getDraws(),100);
+	    assertEquals(100,game.getDraws());
 	    
 		
 	}

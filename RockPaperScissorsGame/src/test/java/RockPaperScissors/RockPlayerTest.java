@@ -1,6 +1,8 @@
 package RockPaperScissors;
 
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 public class RockPlayerTest extends TestCase {
 
@@ -8,9 +10,14 @@ public class RockPlayerTest extends TestCase {
 		super.setUp();
 	}
 
+	public static Test suite()
+    {
+        return new TestSuite( RockPlayerTest.class );
+    }
+	
 	public void testPlay() {
 		Player p=new RockPlayer();
-		assertEquals(p.play(),Handsign.ROCK);
+		assertEquals(Handsign.ROCK,p.play());
 	}
 
 }
