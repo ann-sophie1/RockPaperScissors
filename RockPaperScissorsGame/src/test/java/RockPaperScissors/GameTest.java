@@ -43,7 +43,7 @@ public class GameTest extends TestCase {
 		  }
 	}
 
-	public void testStartGame() {
+	public void testEvaluationRockPaper() {
 		Game game=new Game(1);
 		Player p1=new RockPlayer("P1");
 		Player p2=mock(RandomPlayer.class);
@@ -55,7 +55,92 @@ public class GameTest extends TestCase {
 		} catch (Exception e) {}
 	    
 	    assertEquals(1,game.getWins(p2));
+	     
+		
+	}
+	
+	public void testEvaluationPaperRock() {
+		Game game=new Game(1);
+		Player p1=mock(RandomPlayer.class);
+		when(p1.play()).thenReturn(Handsign.PAPER);
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.ROCK);
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
 	    
+	    assertEquals(1,game.getWins(p1));
+	     
+		
+	}
+	
+	public void testEvaluationScissorsPaper() {
+		Game game=new Game(1);
+		Player p1=mock(RandomPlayer.class);
+		when(p1.play()).thenReturn(Handsign.SCISSOR);
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.PAPER);
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
+	    
+	    assertEquals(1,game.getWins(p1));
+	     
+		
+	}
+	
+	public void testEvaluationPaperScissors() {
+		Game game=new Game(1);
+		Player p1=mock(RandomPlayer.class);
+		when(p1.play()).thenReturn(Handsign.PAPER);
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.SCISSOR);
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
+	    
+	    assertEquals(1,game.getWins(p2));
+	     
+		
+	}
+	
+	public void testEvaluationRockScissors() {
+		Game game=new Game(1);
+		Player p1=mock(RandomPlayer.class);
+		when(p1.play()).thenReturn(Handsign.SCISSOR);
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.ROCK);
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
+	    
+	    assertEquals(1,game.getWins(p2));
+	     
+		
+	}
+	
+	public void testEvaluationScissorsRock() {
+		Game game=new Game(1);
+		Player p1=mock(RandomPlayer.class);
+		when(p1.play()).thenReturn(Handsign.ROCK);
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.SCISSOR);
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
+	    
+	    assertEquals(1,game.getWins(p1));
+	     
 		
 	}
 	

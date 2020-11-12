@@ -40,21 +40,37 @@ public class Game {
 		} else
 			throw new Exception("Only two players can participate");
 	}
-
-	private void evaluate(Handsign hand1, Handsign hand2) {
+	
+	private Result evaluateHandsigns(Handsign hand1, Handsign hand2) {
 		if (hand1 == hand2) {
-			this.draws++;
+			return Result.DRAW;
 		} else if ((hand1 == Handsign.ROCK && hand2 == Handsign.SCISSOR)
 				|| (hand1 == Handsign.SCISSOR && hand2 == Handsign.PAPER)
 				|| (hand1 == Handsign.PAPER && hand2 == Handsign.ROCK)) {
-			this.wins[0]++;
+			return Result.WIN;
 		} else {
+			return Result.LOOSE;
+		}
+	}
+
+	private void evaluateWinner(Handsign hand1, Handsign hand2) {
+		Result resultP1 = evaluateHandsigns(hand1, hand2);
+		
+		switch (resultP1) {
+		case WIN:
+			this.wins[0]++;
+			break;
+		case LOOSE:
 			this.wins[1]++;
+			break;
+		default:
+			this.draws++;
+			break;
 		}
 	}
 
 	private void playRound() {
-		evaluate(this.players.get(0).play(), this.players.get(1).play());
+		evaluateWinner(this.players.get(0).play(), this.players.get(1).play());
 	}
 
 	public void startGame() throws Exception {
