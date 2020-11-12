@@ -9,7 +9,8 @@ public class RockPlayerTest extends TestCase {
 	}
 
 	public void testPlay() {
-		fail("Not yet implemented");
+		Player p=new RockPlayer();
+		assertEquals(p.play(),Handsign.ROCK);
 	}
 
 }
