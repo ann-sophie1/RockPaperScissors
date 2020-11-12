@@ -1,4 +1,6 @@
-package RockPaperScissors;
+package RockPaperScissors.playerStrategies;
+
+import RockPaperScissors.Handsign;
 
 public class RockPlayer extends Player {
 

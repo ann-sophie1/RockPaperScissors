@@ -1,6 +1,9 @@
 package RockPaperScissors;
 import static org.mockito.Mockito.*;
 
+import RockPaperScissors.playerStrategies.Player;
+import RockPaperScissors.playerStrategies.RandomPlayer;
+import RockPaperScissors.playerStrategies.RockPlayer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

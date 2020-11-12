@@ -1,5 +1,9 @@
 package RockPaperScissors;
 
+import RockPaperScissors.playerStrategies.Player;
+import RockPaperScissors.playerStrategies.RandomPlayer;
+import RockPaperScissors.playerStrategies.RockPlayer;
+
 public class App 
 {
     public static void main( String[] args )

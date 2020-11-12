@@ -1,20 +1,23 @@
-package RockPaperScissors;
+package RockPaperScissors.playerStrategies;
 
 import java.util.Random;
+
+import RockPaperScissors.Handsign;
 
 public class RandomPlayer extends Player {
 
 	private Random rand;
-	
+
 	public RandomPlayer(String name) {
 		super(name);
-		rand=new Random();
+		rand = new Random();
 	}
-	
+
 	private int getRandomNumber() {
 		return this.rand.nextInt(3);
-		
+
 	}
+
 	@Override
 	public Handsign play() {
 		int randomNumber = getRandomNumber();
