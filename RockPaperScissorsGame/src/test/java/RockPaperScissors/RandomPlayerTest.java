@@ -16,8 +16,9 @@ public class RandomPlayerTest extends TestCase {
     }
 	
 	public void testPlay() {
-		Player p=new RandomPlayer();
-		assertTrue((p.play()==Handsign.ROCK || p.play()==Handsign.PAPER || p.play()==Handsign.SCISSOR));
+		Player p=new RandomPlayer("P1");
+		Handsign h=p.play();
+		assertTrue((h==Handsign.ROCK || h==Handsign.PAPER || h==Handsign.SCISSOR));
 	}
 
 }

@@ -2,10 +2,13 @@ package RockPaperScissors;
 
 public class RockPlayer extends Player {
 
+	public RockPlayer(String name) {
+		super(name);
+	}
+
 	@Override
 	public Handsign play() {
-		// TODO Auto-generated method stub
-		return null;
+		return Handsign.ROCK;
 	}
 
 }

@@ -6,14 +6,31 @@ public class RandomPlayer extends Player {
 
 	private Random rand;
 	
+	public RandomPlayer(String name) {
+		super(name);
+		rand=new Random();
+	}
+	
 	private int getRandomNumber() {
-		return 0;
+		return this.rand.nextInt(3);
 		
 	}
 	@Override
 	public Handsign play() {
-		// TODO Auto-generated method stub
-		return null;
+		int randomNumber = getRandomNumber();
+		Handsign hand;
+		switch (randomNumber) {
+		case 0:
+			hand = Handsign.ROCK;
+			break;
+		case 1:
+			hand = Handsign.SCISSOR;
+			break;
+		default:
+			hand = Handsign.PAPER;
+			break;
+		}
+		return hand;
 	}
 
 }

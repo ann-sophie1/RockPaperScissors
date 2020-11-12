@@ -16,7 +16,7 @@ public class RockPlayerTest extends TestCase {
     }
 	
 	public void testPlay() {
-		Player p=new RockPlayer();
+		Player p=new RockPlayer("P1");
 		assertEquals(Handsign.ROCK,p.play());
 	}
 
