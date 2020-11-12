@@ -45,6 +45,22 @@ public class GameTest extends TestCase {
 		
 	}
 	
+	public void testStartGamePlayerNumber() {
+		Game game=new Game(100);
+		Player p1=new RockPlayer();
+		game.addPlayer(p1);
+	    game.startGame();
+	    assertEquals(game.getWinsPlayer2(),1);
+	    try {
+	    	game.addPlayer(p1);
+		    game.startGame();
+		    fail("Expected an Exception to be thrown");
+		  } catch (Exception e) {
+		    assertEquals(e.getMessage(),"Not enough Players");
+		  }
+		
+	}
+	
 	public void testStartGameRock() {
 		Game game=new Game(100);
 		Player p1=new RockPlayer();
