@@ -1,5 +1,5 @@
 package RockPaperScissors;
-
+import static org.mockito.Mockito.*;
 import junit.framework.TestCase;
 
 public class GameTest extends TestCase {
@@ -9,23 +9,52 @@ public class GameTest extends TestCase {
 	}
 
 	public void testGame() {
-		fail("Not yet implemented");
+		Game game=new Game(1);
+		assertEquals(game.getDraws(),0);
+		assertEquals(game.getWinsPlayer1(),0);
+		assertEquals(game.getWinsPlayer2(),0);
 	}
+	
+	
 
-	public void testRegisterToGame() {
-		fail("Not yet implemented");
-	}
-
-	public void testEvaluate() {
-		fail("Not yet implemented");
-	}
-
-	public void testRound() {
-		fail("Not yet implemented");
+	public void testaddPlayer() {
+		Game game=new Game(100);
+		Player p1=new RockPlayer();
+		Player p2=new RandomPlayer();
+		Player p3=new RockPlayer();
+		try {
+		    game.addPlayer(p1);
+		    game.addPlayer(p2);
+		    game.addPlayer(p2);
+		    fail("Expected an Exception to be thrown");
+		  } catch (Exception e) {
+		    assertEquals(e.getMessage(),"Only two players can participate");
+		  }
 	}
 
 	public void testStartGame() {
-		fail("Not yet implemented");
+		Game game=new Game(100);
+		Player p1=new RockPlayer();
+		Player p2=mock(RandomPlayer.class);
+		when(p2.play()).thenReturn(Handsign.PAPER);
+		game.addPlayer(p1);
+	    game.addPlayer(p2);
+	    game.startGame();
+	    assertEquals(game.getWinsPlayer2(),1);
+	    
+		
+	}
+	
+	public void testStartGameRock() {
+		Game game=new Game(100);
+		Player p1=new RockPlayer();
+		Player p2=new RockPlayer();
+		game.addPlayer(p1);
+	    game.addPlayer(p2);
+	    game.startGame();
+	    assertEquals(game.getDraws(),100);
+	    
+		
 	}
 
 }

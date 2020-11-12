@@ -5,12 +5,24 @@ import java.util.List;
 
 public class Game {
 	
-	List<Player> players;
+	private List<Player> players;
 	private int rounds;
 	private int numberParticipants;
 	private int winsPlayer1;
 	private int winsPlayer2;
 	private int draws;
+
+	public int getWinsPlayer1() {
+		return winsPlayer1;
+	}
+
+	public int getWinsPlayer2() {
+		return winsPlayer2;
+	}
+
+	public int getDraws() {
+		return draws;
+	}
 
 	public Game(int rounds) {
 		this.rounds = rounds;
@@ -21,15 +33,15 @@ public class Game {
 		this.numberParticipants=2;
 	}
 
-	public void registerToGame(Player player) {
+	public void addPlayer(Player player) {
 		
 	}
 	
-	public void evaluate(Handsign h1, Handsign h2){
+	private void evaluate(Handsign h1, Handsign h2){
 		
 	}
 	
-	public void round() {
+	private void playRound() {
 		
 	}
 	
