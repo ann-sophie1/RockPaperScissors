@@ -12,5 +12,9 @@ public abstract class Player {
 		return name;
 	}
 	
+	/**
+	 * 
+	 * @return {@link Handsign} that is chosen by the player
+	 */
 	public abstract Handsign play();
 }

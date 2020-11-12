@@ -41,13 +41,16 @@ public class GameTest extends TestCase {
 	}
 
 	public void testStartGame() {
-		Game game=new Game(100);
+		Game game=new Game(1);
 		Player p1=new RockPlayer("P1");
 		Player p2=mock(RandomPlayer.class);
 		when(p2.play()).thenReturn(Handsign.PAPER);
-		game.addPlayer(p1);
-	    game.addPlayer(p2);
-	    game.startGame();
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+			game.startGame();
+		} catch (Exception e) {}
+	    
 	    assertEquals(1,game.getWinsPlayer2());
 	    
 		
@@ -56,9 +59,6 @@ public class GameTest extends TestCase {
 	public void testStartGamePlayerNumber() {
 		Game game=new Game(100);
 		Player p1=new RockPlayer("P1");
-		game.addPlayer(p1);
-	    game.startGame();
-	    assertEquals(1,game.getWinsPlayer2());
 	    try {
 	    	game.addPlayer(p1);
 		    game.startGame();
@@ -73,9 +73,12 @@ public class GameTest extends TestCase {
 		Game game=new Game(100);
 		Player p1=new RockPlayer("P1");
 		Player p2=new RockPlayer("P2");
-		game.addPlayer(p1);
-	    game.addPlayer(p2);
-	    game.startGame();
+		try {
+			game.addPlayer(p1);
+			game.addPlayer(p2);
+		    game.startGame();
+		} catch (Exception e) {}
+	    
 	    assertEquals(100,game.getDraws());
 	    
 		
