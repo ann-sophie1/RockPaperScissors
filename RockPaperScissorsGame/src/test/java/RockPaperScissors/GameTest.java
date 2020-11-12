@@ -19,8 +19,8 @@ public class GameTest extends TestCase {
 	public void testGame() {
 		Game game=new Game(1);
 		assertEquals(0,game.getDraws());
-		assertEquals(0,game.getWinsPlayer1());
-		assertEquals(0,game.getWinsPlayer2());
+		assertEquals(0,game.getWins()[0]);
+		assertEquals(0,game.getWins()[1]);
 	}
 	
 	
@@ -51,7 +51,7 @@ public class GameTest extends TestCase {
 			game.startGame();
 		} catch (Exception e) {}
 	    
-	    assertEquals(1,game.getWinsPlayer2());
+	    assertEquals(1,game.getWins(p2));
 	    
 		
 	}

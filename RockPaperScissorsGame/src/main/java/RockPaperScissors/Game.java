@@ -8,17 +8,18 @@ public class Game {
 	private List<Player> players;
 	private int rounds;
 	private int numberParticipants;
-	private int winsPlayer1;
-	private int winsPlayer2;
+	private int[] wins;
 	private int draws;
 
-	public int getWinsPlayer1() {
-		return winsPlayer1;
+	public int getWins(Player p) {
+		int index=players.indexOf(p);
+		return this.wins[index];
+	}
+	
+	public int[] getWins() {
+		return this.wins;
 	}
 
-	public int getWinsPlayer2() {
-		return winsPlayer2;
-	}
 
 	public int getDraws() {
 		return draws;
@@ -27,10 +28,9 @@ public class Game {
 	public Game(int rounds) {
 		this.rounds = rounds;
 		this.players = new ArrayList<Player>();
-		this.winsPlayer1 = 0;
-		this.winsPlayer2 = 0;
 		this.draws = 0;
 		this.numberParticipants=2;
+		this.wins=new int[numberParticipants];
 	}
 
 	public void addPlayer(Player player) throws Exception {
@@ -46,9 +46,9 @@ public class Game {
 		} else if ((hand1 == Handsign.ROCK && hand2 == Handsign.SCISSOR)
 				|| (hand1 == Handsign.SCISSOR && hand2 == Handsign.PAPER)
 				|| (hand1 == Handsign.PAPER && hand2 == Handsign.ROCK)) {
-			this.winsPlayer1++;
+			this.wins[0]++;
 		} else {
-			this.winsPlayer2++;
+			this.wins[1]++;
 		}
 	}
 	
@@ -64,7 +64,15 @@ public class Game {
 				playRound();
 			}
 		}
-		
+		printResults();
 	}
 	
+	private void printResults() {
+		System.out.println("Number of rounds: " + this.rounds);
+		for (Player p : this.players) {
+			System.out.println("Number of wins Player \"" + p.getName() + "\": " + this.getWins(p));
+		}
+		System.out.println("Number of draws: " + this.draws);
+
+	}
 }
